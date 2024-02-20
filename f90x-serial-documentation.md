@@ -46,7 +46,7 @@ Originally, MC-27 cable was used for the Data Link system, and MC-31/MC-33 for
 the Photo Secretary.
 
 ## Pinout
-![Pin numbers](./pinout.jpg | width=256)
+![Pin numbers](./pinout.jpg)
 
 Above image is taken from the
 [gIcon project](https://web.archive.org/web/20040415102030/http://www.k-i-s.net/sw/po/demo/photo.php?photo=22)
