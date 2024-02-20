@@ -4,7 +4,7 @@ settings and download some exif-like shooting data. Perhaps this qualifies
 these cameras to be one of the first "smart" cameras, if nowadays we use the
 word "smart" for devices that let you change the settings from a smart phone.
 
-The interface allows setting some additonal settings that are normally not
+The interface allows setting some additional settings that are normally not
 possible to set from the camera such as:
 - Enabling the beeper on F90X
 - Bracketing and sequence shooting (without the MF-26 back)
@@ -24,7 +24,7 @@ important to document the interface.
 
 **Note:** I have compiled this information as a hobby project, and it might
 have mistakes. I take no responsibility for any possible personal or device
-damages. The information provided here is only meant for enterntainment, and
+damages. The information provided here is only meant for entertainment, and
 should not be followed as instructions.
 
 ## Existing solutions
@@ -47,8 +47,9 @@ the Photo Secretary.
 
 ## Pinout
 ![Pin numbers](./pinout.jpg)
+
 Above image is taken from the
-[gIcon project](https://web.archive.org/web/20040415102030/http://www.k-i-s.net/sw/po/demo/photo.php?photo=22)
+[gIcon project](https://web.archive.org/web/20040415102030/http://www.k-i-s.net/sw/po/demo/photo.php?photo=22 | width=256)
 and represents the pins when looking at the **cable**.
 
 | Pin # | Description           |
@@ -77,7 +78,7 @@ of the Nikon ML-3 wireless remote control mentions to detach the cord from the
 camera to conserve battery power. That might mean that it is using the pin #2
 to power itself up.
 
-The unknown pins are most likely related to signalling when connecting multiple
+The unknown pins are most likely related to signaling when connecting multiple
 cameras together.
 
 ## Building a cable
@@ -212,7 +213,7 @@ Triggers autofocus. Similar to half-depressing the shutter button.
 
 ### Shutter release
 Similar to fully pressing the shutter button. Triggers the shutter release when
-in manual or continous servo autofocus modes. When used with the single servo
+in manual or continuous servo autofocus modes. When used with the single servo
 autofocus mode, might trigger autofocus and not release the shutter if not in
 focus. The behavior might be possible to change, see the notes for Data Link
 System in the cameras user manual.
