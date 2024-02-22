@@ -229,11 +229,11 @@ TODO
 # Memory map
 TODO
 ## List of memory addresses
-| Address | Size (bytes) | Short description                   |
-| ---     | ---          | ---                                 |
-| [0xFD21](#0xfd21)  | 1            | Frame number                        |
-| 0xFD22  | 2            | Total frames shot ("shutter count") |
-| 0xFD25  | 1            | Shutter speed                       |
+| Address           | Size (bytes) | Short description                   |
+| ---               | ---          | ---                                 |
+| [0xFD21](#0xfd21) | 1            | Frame number                        |
+| [0xFD22](#0xfd22) | 2            | Total frames shot ("shutter count") |
+| [0xFD25](#0xfd25) | 1            | Shutter speed                       |
 
 ## Descriptions of memory addresses
 
@@ -253,14 +253,24 @@ Frame number of the current film.
 
 ### 0xFD22
 Total frames shot. Also counts empty shots when there was no film installed.
-Little endian. For example 2001 frames would be:
-0xFD22: 0xD1
-0xFD23: 0x07
+Little endian.
+<details>
+<summary>Example</summary>
+For 2001 frames, the values would be:
+
+| Address | Value |
+| ---     | ---   |
+| 0xFD22  | 0xD1  |
+| 0xFD23  | 0x07  |
+</details>
 
 ### 0xFD25
 Shutter speed setting in the manual mode. Setting to unknown values (0x01,
 0x02) disables the manual shutter speed selection on the camera. They might be
 some special mode, haven't investigated further.
+
+<details>
+<summary>Details</summary>
 
 | Value | Shutter speed setting |
 | ---   | ---                   |
@@ -274,6 +284,7 @@ some special mode, haven't investigated further.
 | ...   | ...                   |
 | 0x38  | 1/6400                |
 | 0x39  | 1/8000                |
+</details>
 
 # References
 [^1]: [AC-PW-E](https://web.archive.org/web/20001016003317/http://www.nikon.co.jp/main/eng/news/may01_97.htm)
