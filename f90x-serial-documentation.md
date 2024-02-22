@@ -231,7 +231,7 @@ TODO
 ## List of memory addresses
 | Address | Size (bytes) | Short description                   |
 | ---     | ---          | ---                                 |
-| [0xFD21](0xFD21)  | 1            | Frame number                        |
+| [0xFD21](#0xfd21)  | 1            | Frame number                        |
 | 0xFD22  | 2            | Total frames shot ("shutter count") |
 | 0xFD25  | 1            | Shutter speed                       |
 
@@ -242,6 +242,7 @@ Frame number of the current film.
 
 <details>
 <summary>Details</summary>
+  
 | Value        | Frame number |
 | ---          | ---          |
 | 0x00         | No film      |
