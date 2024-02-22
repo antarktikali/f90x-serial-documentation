@@ -231,7 +231,7 @@ TODO
 ## List of memory addresses
 | Address | Size (bytes) | Short description                   |
 | ---     | ---          | ---                                 |
-| 0xFD21  | 1            | Frame number                        |
+| [0xFD21](0xFD21)  | 1            | Frame number                        |
 | 0xFD22  | 2            | Total frames shot ("shutter count") |
 | 0xFD25  | 1            | Shutter speed                       |
 
@@ -240,12 +240,15 @@ TODO
 ### 0xFD21
 Frame number of the current film.
 
+<details>
+<summary>Details</summary>
 | Value        | Frame number |
 | ---          | ---          |
 | 0x00         | No film      |
 | 0x01         | Frame 0      |
 | 0x02         | Frame 1      |
 | And so on... | ...          |
+</details>
 
 ### 0xFD22
 Total frames shot. Also counts empty shots when there was no film installed.
