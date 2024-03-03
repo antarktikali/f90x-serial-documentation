@@ -234,6 +234,9 @@ TODO
 | [0xFD21](#0xfd21) | 1            | Frame number                        |
 | [0xFD22](#0xfd22) | 2            | Total frames shot ("shutter count") |
 | [0xFD25](#0xfd25) | 1            | Shutter speed                       |
+| [0xFE20](#0xfe20) | 1            | Focus flags?                        |
+| [0xFE21](#0xfe21) | 1            | Lens flags?                         |
+| [0xFE22](#0xfe22) | 1            | Focus flags?                        |
 
 ## Descriptions of memory addresses
 
@@ -332,6 +335,45 @@ some special mode, haven't investigated further.
 | 0x37  | 1/5000                |
 | 0x38  | 1/6400                |
 | 0x39  | 1/8000                |
+</details>
+
+### 0xFE20
+Holds some possible flags, not all are known and known ones are not certain.
+
+<details>
+<summary>Details</summary>
+
+| Bit  | Description                                       |
+| ---  | ---                                               |
+| 0x20 | Autofocus available                               |
+| 0x40 | Single Servo AF enabled, shutter might be blocked |
+</details>
+
+### 0xFE21
+Holds some possible flags, not all are known and known ones are not certain.
+
+<details>
+<summary>Details</summary>
+
+| Bit  | Description                    |
+| ---  | ---                            |
+| 0x02 | Aperture information available |
+</details>
+
+### 0xFE22
+Holds some possible flags, not all are known and known ones are not certain.
+
+<details>
+<summary>Details</summary>
+
+| Bit  | Description                                       |
+| ---  | ---                                               |
+| 0x40 | Manual focusing information available             |
+| 0x01 | Subject too close                                 |
+| 0x02 | Subject in focus                                  |
+| 0x04 | Subject too far                                   |
+| 0x08 | Autofocus error; not enough light?                |
+| 0x80 | Single Servo AF enabled, shutter might be blocked |
 </details>
 
 # References
