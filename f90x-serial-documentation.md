@@ -234,6 +234,10 @@ TODO
 | [0xFD21](#0xfd21) | 1            | Frame number                        |
 | [0xFD22](#0xfd22) | 2            | Total frames shot ("shutter count") |
 | [0xFD25](#0xfd25) | 1            | Shutter speed                       |
+| [0xFD26](#0xfd26) | 1            | Exposure mode                       |
+| [0xFD27](#0xfd27) | 1            | Vari-program mode                   |
+| [0xFD28](#0xfd28) | 1            | Metering system                     |
+| [0xFD29](#0xfd29) | 1            | Film advance mode                   |
 | [0xFE20](#0xfe20) | 1            | Focus flags?                        |
 | [0xFE21](#0xfe21) | 1            | Lens flags?                         |
 | [0xFE22](#0xfe22) | 1            | Focus flags?                        |
@@ -335,6 +339,63 @@ some special mode, haven't investigated further.
 | 0x37  | 1/5000                |
 | 0x38  | 1/6400                |
 | 0x39  | 1/8000                |
+</details>
+
+### 0xFD26
+Current exposure mode
+
+<details>
+<summary>Details</summary>
+
+| Value | Mode                   |
+| ---   | ---                    |
+| 0x00  | Programmed Auto        |
+| 0x01  | Shutter-Priority Auto  |
+| 0x02  | Aperture-Priority Auto |
+| 0x03  | Manual                 |
+</details>
+
+### 0xFD27
+Selected vari-program mode
+
+<details>
+<summary>Details</summary>
+
+| Value | Mode                                 |
+| ---   | ---                                  |
+| 0x00  | Poftrait (Po)                        |
+| 0x01  | Portrait with Red-Eye Reduction (rE) |
+| 0x02  | Hyperfocal (HF)                      |
+| 0x03  | Landscape (LR)                       |
+| 0x04  | Silhouette (SL)                      |
+| 0x05  | Sport (SP)                           |
+| 0x06  | Close-Up (CU)                        |
+</details>
+
+### 0xFD28
+Current exposure metering system
+
+<details>
+<summary>Details</summary>
+
+| Value | Mode            |
+| ---   | ---             |
+| 0x00  | Matrix          |
+| 0x01  | Center-Weighted |
+| 0x02  | Spot            |
+</details>
+
+### 0xFD29
+Current film advance mode
+
+<details>
+<summary>Details</summary>
+
+| Value | Mode                  |
+| ---   | ---                   |
+| 0x00  | Single-frame          |
+| 0x01  | Continuous low-speed  |
+| 0x02  | Continuous high-speed |
 </details>
 
 ### 0xFE20
