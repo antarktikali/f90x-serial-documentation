@@ -165,8 +165,16 @@ A data packet looks like the following:
 ```
 02
 (Payload, N bytes)
-(Checksum, 1 byte. Mod 0xFF of the sum of all payload bytes)
+(Checksum, 1 byte)
 03
+```
+
+For the checksum, all payload bytes are summed together, wrapping around to fit
+an 8 bit unsigned integer. For example below is an example of a valid data
+packet where the checksum was larger than 0xFF.
+
+```
+02, 68, 2A, 8D, 11, 30, 03
 ```
 
 ## Reading a value
