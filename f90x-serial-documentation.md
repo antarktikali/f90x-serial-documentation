@@ -124,13 +124,19 @@ request to change the baud rate is made. The client then should wait 200
 milliseconds before continuing communication. The 9600 baud session can be
 terminated with a message.
 
-(TODO should check when is the termination actually needed)
-
 Example (after starting a normal session):
 ```
 PC  -> Cam: 01 20 87 05 00 00 00 00 03 # Special command to change baud rate
 Cam -> PC : 06 00 # ([ACK][NUL])
+# Exchange messages at 9600 BAUD rate from now on
+PC  -> Cam: 04 04 # ([EOT][EOT]) End the 9600 BAUD session
+PC  -> Cam: 04 04 # ([EOT][EOT]) Acknowledge ending of the 9600 BAUD session
+# After this, the camera goes back to using 1200 BAUD rate
 ```
+
+If the end message (EOT) is not sent and the camera goes to sleep, the BAUD
+rate goes back to 1200. Most existing tools are sending this message
+after the needed communication with 9600 BAUD rate is completed.
 
 ## Memory spaces
 When reading or writing to the memory, most likely there are different address
