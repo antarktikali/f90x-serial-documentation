@@ -242,6 +242,9 @@ TODO
 
 # Memory map
 TODO
+
+A comprehensive memory map can also be found [here](https://web.archive.org/web/20040905054958/http://members.aol.com/khancock/pilot/nbuddy/N90s-memory-map.txt).
+
 ## List of memory addresses
 | Address           | Size (bytes) | Short description                   |
 | ---               | ---          | ---                                 |
