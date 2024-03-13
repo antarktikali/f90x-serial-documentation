@@ -252,6 +252,7 @@ TODO
 | [0xFD27](#0xfd27) | 1            | Vari-program mode                   |
 | [0xFD28](#0xfd28) | 1            | Metering system                     |
 | [0xFD29](#0xfd29) | 1            | Film advance mode                   |
+| [0xFD36](#0xfd36) | 3            | Custom program settings             |
 | [0xFE20](#0xfe20) | 1            | Focus flags?                        |
 | [0xFE21](#0xfe21) | 1            | Lens flags?                         |
 | [0xFE22](#0xfe22) | 1            | Focus flags?                        |
@@ -367,6 +368,7 @@ Current exposure mode
 | 0x01  | Shutter-Priority Auto  |
 | 0x02  | Aperture-Priority Auto |
 | 0x03  | Manual                 |
+| 0x04  | Custom Program         |
 </details>
 
 ### 0xFD27
@@ -410,6 +412,63 @@ Current film advance mode
 | 0x00  | Single-frame          |
 | 0x01  | Continuous low-speed  |
 | 0x02  | Continuous high-speed |
+</details>
+
+### 0xFD36
+It is possible to configure a custom program for the camera. The custom program
+determines the minimum and maximum aperture values in relation to the shutter
+speed. The configuration is done by providing 3 points. Custom program is
+disabled by setting all 3 bytes to zero.
+
+<details>
+<summary>Details</summary>
+
+The 3 points should be somewhere in the following coordinates:
+![Custom program graph](./custom_program_graph.jpg)
+
+The following conditions should exist:
+- B can not have a larger aperture value than A
+- C can not have a larger aperture value than B
+- B can not have a shutter speed slower than A
+- C can not have a shutter speed slower than B
+
+In other words, if the points are ordered as A, B, and C; then each following
+point can only go either down or right on the graph. The points can be in the
+same position. That's why the parameters for A and B points are made as
+positive offsets.
+
+| Address | Byte Description                      |
+| ---     | ---                                   |
+| 0xFD36  | Point C position                      |
+| 0xFD37  | Point B offset in relation to point C |
+| 0xFD38  | Point A offset in relation to point B |
+
+For all values, the higher nibble represents the aperture axis, and the lower
+one the shutter speed axis.
+
+The aperture for the starting point C starts with 0x1_ for f/1.4 and goes up to
+0xA_ for f/32. The shutter speed for the starting point C starts with 0x_0 for
+1 second and goes up to 0x_D for 1/8000. After that, each nibble just
+represents the offset.
+
+Example:
+![Custom program example](./custom_program_example.jpg)
+
+In above example, the highest aperture would be f/2.8. After that, the camera
+would only be decreasing the shutter speed and not opening the aperture
+further. Similarly, the lowest aperture is f/16 and after that the camera would
+only try to increase the shutter speed. At shutter speed 1/125, f/4 would be
+used and for values in between it would be calculated according to the
+illustrated lines.
+
+The memory would look like the following for the above graph:
+
+| Address | Value |
+| ---     | ---   |
+| 0xFD36  | 0x8A  |
+| 0xFD37  | 0x43  |
+| 0xFD38  | 0x16  |
+
 </details>
 
 ### 0xFE20
